@@ -1,4 +1,4 @@
-import ExpenseItem from "./components/ExpenseItem/ExpenseItem";
+import Expenses from "./components/Expenses/Expenses";
 
 const expenses = [
   {id: 'e1', title: 'Toilet Paper', amount: 94.12, date: new Date(2020, 7, 14)},
@@ -11,13 +11,7 @@ function App() {
   return (
     <div>
       <h2>Let's get started!</h2>
-      {
-        //We need to send each object as new, that's why we use map function
-      }
-      <div>{expenses.map((e,i) => {        
-        //Each component should have a unique key property
-        return (<ExpenseItem key={e.id} id={e.id} title={e.title} date={e.date} amount={e.amount} />);
-      })}</div>
+      <Expenses expenses={expenses} />
     </div>
   );
 };
