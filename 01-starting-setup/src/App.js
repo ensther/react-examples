@@ -11,6 +11,9 @@ function App() {
   return (
     <div>
       <h2>Let's get started!</h2>
+      {
+        //We need to send each object as new, that's why we use map function
+      }
       <div>{expenses.map((e,i) => {        
         //Each component should have a unique key property
         return (<ExpenseItem key={e.id} id={e.id} title={e.title} date={e.date} amount={e.amount} />);
