@@ -2,7 +2,7 @@ import './Expenses.scss';
 
 import ExpenseItem from '../ExpenseItem/ExpenseItem';
 
-function Expenses(props){
+const Expenses = (props) => {
     return (
         <div className='expenses'>
             {

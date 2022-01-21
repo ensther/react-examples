@@ -8,7 +8,7 @@ const expenses = [
   {id: 'e4', title: 'New Desk (Wooden)', amount: 450, date: new Date(2021, 5, 12)},
 ];
 
-function App() {
+const App = () => {
   /*
   //This is the same as below code
   return React.createElement('div', {className: 'main-app'},
