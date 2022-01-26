@@ -9,6 +9,15 @@ const DUMMY_EXPENSES = [
   {id: 'e4', title: 'New Desk (Wooden)', amount: 450, date: new Date(2022, 5, 12)},
 ];
 
+const DUMMY_YEARS = DUMMY_EXPENSES.reduce((acc,item)=>{
+  if(!acc.includes(item.date.getFullYear())){
+    acc.push(item.date.getFullYear());
+  }
+  return acc;
+},[])
+
+
+
 const App = () => {
   /*
   //This is the same as below code
@@ -19,20 +28,24 @@ const App = () => {
   */
 
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  const [years, setYears] = useState(DUMMY_YEARS);
 
   const addExpenseHandler = (expenseData) =>{
-    //expenses = [...expenses, expenseData];    
     setExpenses((oldExpenses) => {
       return [...oldExpenses, expenseData];
     });
-    console.log(expenses);
-
+    
+    const year = expenseData.date.getFullYear();
+    if(!years.some(y => y===year))
+      setYears((oldYears) => {
+        return [...oldYears, year];
+      });
   };
   
   return (
     <div>
       <NewExpense onAddExpenseHandler={addExpenseHandler}/>
-      <Expenses expenses={expenses} />
+      <Expenses expenses={expenses} years={years}/>
     </div>
   );
 };

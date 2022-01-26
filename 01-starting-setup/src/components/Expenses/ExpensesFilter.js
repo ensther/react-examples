@@ -13,9 +13,11 @@ const ExpensesFilter = (props) => {
             <label>Filter by year</label>
             <select onChange={onChangeHandler} defaultValue={props.year === '' ? '-' : props.year }>
                 <option value='-' disabled>-</option>
-                <option value='2022'>2022</option>
-                <option value='2021'>2021</option>
-                <option value='2020'>2020</option>
+                {
+                    props.years.map((y) => {
+                        return (<option key={y} value={y}>{y}</option>);
+                    })
+                }
             </select>
         </div>
         </div>
